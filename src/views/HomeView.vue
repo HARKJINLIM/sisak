@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="padding:20px;">
     <br>
     <h2>DEMULATOR WebDev.Env.Conf. Checklist</h2>
     <P>Please refer in the below description for SoW.</P>
@@ -35,7 +35,9 @@
     <p>9. Express setup has been confirmed and deploy completed</p>
     <p>10. Mysql setup has been confirmed and deploy completed</p>
     <p>11. WebS. Apache setup has been confirmed and deploy completed</p>
-    <p>12. SSR Lifecycle routing has been check and deploy completed</p>
+    <p>12. SSR Lifecycle routing has been check and deleted</p>
+    <p>13. Vuetify library has been installed and deployed</p>
+    <p>14. SiteTitle component has been developed and deployed</p>
   </div>
 </template>
 
@@ -48,28 +50,8 @@ export default {
       }
     },
     title() {
-      console.log("Home.vue title mixin");
       return this.title;
     },
-    serverPrefetch() {
-    console.log("Home.vue serverPrefetch");
-    return new Promise((resolve, reject) => {
-      console.log("Home.vue serverPrefetch Promise");
-      resolve();
-    });
-  },
-  beforeCreate() {
-    console.log("Home.vue beforeCreate");
-  },
-  created() {
-    console.log("Home.vue created ssrContext : ", this.$ssrContext);
-  },
-  beforeMount() {
-    console.log("Home.vue beforeMount");
-  },
-  mounted() {
-    console.log("Home.vue mounted");
-  },
     methods: {
       toastTest1() {
         this.$toast.info('Hello Info');
