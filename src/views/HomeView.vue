@@ -38,6 +38,7 @@
     <p>12. SSR Lifecycle routing has been check and deleted</p>
     <p>13. Vuetify library has been installed and deployed</p>
     <p>14. SiteTitle component has been developed and deployed</p>
+    <p>15. SiteFooter component has been developed and deployed</p>
   </div>
 </template>
 

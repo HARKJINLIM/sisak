@@ -7,7 +7,8 @@ export function createStore() {
 	const store = new Vuex.Store({
 		state: {
 			config : {
-				title : "DEMULATOR"
+				title : "DEMULATOR",
+				footer : "DEMULATION all rights reserved"
 			}
 		},
 		mutations: {
