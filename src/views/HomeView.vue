@@ -1,6 +1,14 @@
 <template>
   <div>
-    <h1>Toast Plugin Contirmed</h1>
+    <br>
+    <h2>DEMULATOR WebDev.Env.Conf. Checklist</h2>
+    <p>Please refer in the below description for SoW.</P>
+    <br>
+    <p>1. SSH Testing has been confirmed and deploy completed</p>
+    <p>2. HTTS(S) Testing has been confirmed and deploy completed</p>
+    <p>3. Proxy Hosting Testing has been confirmed and deploy completed</p>
+    <p>4. SSR Testing has been confirmed and deploy completed</p>
+    <p>5. Toast Plugin developmnet has been Contirmed and deployed</p>
     <div>
       <v-btn @click="toastTest1">Toast Info</v-btn>
       <v-btn @click="toastTest2">Toast Success</v-btn>
@@ -9,33 +17,35 @@
       <v-btn @click="toastTest5">Total Error</v-btn>
     </div>
     <br>
-    <h1>progressbar Plugin Contirmed</h1>
+    <p>6. progressbar Plugin developmnet has been Contirmed and deployed</p>
     <div>
       <v-btn @click="barTest1">Start</v-btn>
       <v-btn @click="barTest2">Finish</v-btn>
       <v-btn @click="barTest3">Fail</v-btn>
     </div>
     <br>
-    <h1>NotifyTest Plugin Contirmed</h1>
+    <p>7. NotifyTest Plugin developmnet has been Contirmed and deployed</p>
     <div>
       <v-btn @click="notifyTest1">Start</v-btn>
       <v-btn @click="notifyTest2">Confirm</v-btn>
       <v-btn @click="notifyTest3">PromptStart</v-btn>
     </div>
     <br>
-    <h1>SSH Testing confirmed</h1>
-    <br>
-    <h1>HTTS(S) Testing confirmed</h1>
-    <br>
-    <h1>Proxy Hosting Testing confirmed</h1>
-    <br>
-    <h1>SSR Testing confirmed</h1>
+    <p>8. Mixins server side testing has been confirmed and deploy completed</p>
   </div>
 </template>
 
 <script>
 export default {
     name: "Home",
+    data() {
+      return {
+        title : "DEMULATOR"
+      }
+    },
+    title() {
+      return this.title;
+    },
     methods: {
       toastTest1() {
         this.$toast.info('Hello Info');
