@@ -2,7 +2,7 @@
   <div>
     <br>
     <h2>DEMULATOR WebDev.Env.Conf. Checklist</h2>
-    <p>Please refer in the below description for SoW.</P>
+    <P>Please refer in the below description for SoW.</P>
     <br>
     <p>1. SSH Testing has been confirmed and deploy completed</p>
     <p>2. HTTS(S) Testing has been confirmed and deploy completed</p>
@@ -32,6 +32,10 @@
     </div>
     <br>
     <p>8. Mixins server side testing has been confirmed and deploy completed</p>
+    <p>9. Express setup has been confirmed and deploy completed</p>
+    <p>10. Mysql setup has been confirmed and deploy completed</p>
+    <p>11. WebS. Apache setup has been confirmed and deploy completed</p>
+    <p>12. SSR Lifecycle routing has been check and deploy completed</p>
   </div>
 </template>
 
@@ -44,8 +48,28 @@ export default {
       }
     },
     title() {
+      console.log("Home.vue title mixin");
       return this.title;
     },
+    serverPrefetch() {
+    console.log("Home.vue serverPrefetch");
+    return new Promise((resolve, reject) => {
+      console.log("Home.vue serverPrefetch Promise");
+      resolve();
+    });
+  },
+  beforeCreate() {
+    console.log("Home.vue beforeCreate");
+  },
+  created() {
+    console.log("Home.vue created ssrContext : ", this.$ssrContext);
+  },
+  beforeMount() {
+    console.log("Home.vue beforeMount");
+  },
+  mounted() {
+    console.log("Home.vue mounted");
+  },
     methods: {
       toastTest1() {
         this.$toast.info('Hello Info');
