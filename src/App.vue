@@ -47,5 +47,24 @@ export default {
   data: () => ({
     //
   }),
+  serverPrefetch() {
+	console.log("APP.vue serverPrefetch");
+	return new Promise((resolve, reject)=>{
+		console.log("APP.vue serverPrefetch Promise")
+		resolve();
+	});
+},
+beforeCreate() {
+	console.log("APP.vue beforeCreate");
+},
+created() {
+	console.log("APP.vue created ssrContext : ", this.$ssrContext);
+},
+beforeMount() {
+	console.log("APP.vue beforeMount");
+},
+mounted() {
+	console.log("APP.vue mounted")
+},
 };
 </script>
