@@ -1,12 +1,8 @@
 <template>
-  <v-footer
-    dark
-    padless
+  <v-footer ark padless
   >
     <v-card
-      flat
-      tile
-      class="indigo lighten-1 white--text text-center"
+      flat tile class="indigo lighten-1 white--text text-center"
     >
       <v-card-text>
         <v-btn
@@ -25,7 +21,8 @@
       From your past to your future!! DEMULATOR.net aims to meet stakeholder needs in the field of electrical design engineering and to operate all electrical design assets in the world on a platform basis. DEMULATOR.net is short for Demulator.net, which is a cloud-based next-generation platform that provides core services with the goal of increasing the matrix of electrical design engineering
       </v-card-text>
 
-      <v-divider></v-divider>
+      <v-divider>
+      </v-divider>
 
       <v-card-text class="white--text">
         {{ new Date().getFullYear() }} — {{footer}}
