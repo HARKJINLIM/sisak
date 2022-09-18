@@ -1,12 +1,30 @@
 <template>
-   <v-form @submit.prevent="save" ref="form" v-model="valid" lazy-validation>
+  <v-form @submit.prevent="save" ref="form" v-model="valid" lazy-validation>
+    <input-duplicate-check
+      ref="id"
+      v-model="form.mb_id"
+      label="ID"
+      prepend-icon="mdi-account"
+      counter="30"
+      :rules="rules.id()"
+      :cbCheck="cbCheckId"
+    />
     <v-btn type="submit" block color="primary">Sign Up</v-btn>
   </v-form>
 </template>
 
 <script>
+import validateRules from "../../../util/validateRules";
+import InputDuplicateCheck from "../InputForms/InputDuplicateCheck.vue";
 export default {
+  components: { InputDuplicateCheck },
   name: "SignUpForm",
+  props: {
+    cbCheckId: {
+      type: Function,
+      default: null,
+    },
+  },
   data() {
     return {
       valid: true,
@@ -24,8 +42,15 @@ export default {
       },
     };
   },
+  computed: {
+    rules: () => validateRules,
+  },
   methods: {
-    save() {
+    async save() {
+      this.$refs.form.validate();
+      await this.$nextTick();
+      if (!this.valid) return;
+      if (!this.$refs.id.validate()) return;
       console.log(this.form);
     },
   },
@@ -33,5 +58,4 @@ export default {
 </script>
 
 <style>
-
 </style>
