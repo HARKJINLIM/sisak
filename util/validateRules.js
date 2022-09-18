@@ -86,7 +86,21 @@ const rules = {
 		}
 		arr.push(rules.pattern(opt));
 		return arr;
-	}
+	},
+	phone(options) {
+		const defaultOptions = {
+			label : 'Phone number',
+			required : true,
+			pattern : /^(\d{2,3}-)?\d{3,4}-\d{4}$/
+		};
+		const opt = Object.assign(defaultOptions, options);
+		const arr = [];
+		if(opt.required) {
+			arr.push(rules.require(opt));
+		}
+		arr.push(rules.pattern(opt));
+		return arr;
+	},
 };
 
 module.exports = rules;

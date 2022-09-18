@@ -48,6 +48,12 @@
       prepend-icon="mdi-gender-male-female"
       :rules="[rules.require({ label: 'Gender' })]"
     />
+    <input-phone
+      v-model="form.mb_phone"
+	    label="Phone number"
+	    prepend-icon="mdi-phone"
+	    :rules="rules.phone()"
+    />
 
     <v-btn type="submit" block color="primary">Sign Up</v-btn>
   </v-form>
@@ -58,9 +64,10 @@ import validateRules from "../../../util/validateRules";
 import InputDate from "../InputForms/InputDate.vue";
 import InputDuplicateCheck from "../InputForms/InputDuplicateCheck.vue";
 import InputPassword from "../InputForms/InputPassword.vue";
+import InputPhone from '../InputForms/InputPhone.vue';
 import InputRadio from "../InputForms/InputRadio.vue";
 export default {
-  components: { InputDuplicateCheck, InputPassword, InputDate, InputRadio },
+  components: { InputDuplicateCheck, InputPassword, InputDate, InputRadio, InputPhone },
   name: "SignUpForm",
   props: {
     cbCheckId: {
