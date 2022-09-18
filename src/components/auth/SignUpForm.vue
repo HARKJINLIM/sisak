@@ -26,7 +26,6 @@
       v-model="confirmPw"
       prepend-icon="mdi-lock"
       :rules="[rules.matchValue(form.mb_password)]"
-    
     />
     <input-duplicate-check
 			ref="email"
@@ -36,6 +35,12 @@
 			:rules="rules.email()"
 			:cbCheck="cbCheckEmail"
     />
+    <input-date
+      v-model="form.mb_birth" 
+      label="Birthday"
+      prepend-icon="mdi-calendar"
+      :rules="rules.date({label:'Birthday'})"
+    />
 
     
     <v-btn type="submit" block color="primary">Sign Up</v-btn>
@@ -44,10 +49,11 @@
 
 <script>
 import validateRules from "../../../util/validateRules";
+import InputDate from '../InputForms/InputDate.vue';
 import InputDuplicateCheck from "../InputForms/InputDuplicateCheck.vue";
 import InputPassword from '../InputForms/InputPassword.vue';
 export default {
-  components: { InputDuplicateCheck, InputPassword },
+  components: { InputDuplicateCheck, InputPassword, InputDate },
   name: "SignUpForm",
   props: {
     cbCheckId: {
@@ -75,7 +81,7 @@ export default {
         mb_addr2: "",
       },
       //Below confirmPw is only for check. no need to push to DB. So no need form
-      comfirmPw: "",
+      confirmPw: "",
     };
   },
   computed: {
