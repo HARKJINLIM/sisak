@@ -5,14 +5,14 @@
         <v-toolbar-title>Sign Up</v-toolbar-title>
       </v-toolbar>
       <v-card-text>
-        <sing-up-form :cbCheckId="checkId" />
+        <sing-up-form :cbCheckId="checkId" :cbCheckEmail="checkEmail"/>
       </v-card-text>
     </v-card>
   </div>
 </template>
 
 <script>
-import InputDuplicateCheckVue from '@/components/InputForms/InputDuplicateCheck.vue';
+//import InputDuplicateCheckVue from '@/components/InputForms/InputDuplicateCheck.vue';
 //Module call import
 import { mapActions } from 'vuex';
 //Wrong typing need to check "SingUpForm"
@@ -25,6 +25,12 @@ export default {
     async checkId(id) {
       //When your forward > move into user.js payload
       const data = await this.duplicateCheck({field: 'mb_id', value: id});      
+      //console.log(id);
+      return data;
+    },
+    async checkEmail(email) {
+      //When your forward > move into user.js payload
+      const data = await this.duplicateCheck({field: 'mb_email', value: email});      
       //console.log(id);
       return data;
     },

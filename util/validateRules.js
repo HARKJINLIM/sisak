@@ -29,6 +29,34 @@ const rules = {
 		arr.push(rules.alphaNum());
 		return arr;
 	},
+	name(options) {
+		const defaultOptions = {
+			label : 'Name',
+			len : 2,
+			required : true,
+		};
+		const opt = Object.assign(defaultOptions, options);
+		const arr = [];
+		if(opt.required) {
+			arr.push(rules.require(opt));
+		}
+		arr.push(rules.min(opt));
+		return arr;
+	},
+	email(options) {
+		const defaultOptions = {
+			label : 'email',
+			required : true,
+			pattern : /.+@.+\..+/
+		};
+		const opt = Object.assign(defaultOptions, options);
+		const arr = [];
+		if(opt.required) {
+			arr.push(rules.require(opt));
+		}
+		arr.push(rules.pattern(opt));
+		return arr;
+	}
 };
 
 module.exports = rules;

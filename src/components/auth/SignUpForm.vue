@@ -9,6 +9,22 @@
       :rules="rules.id()"
       :cbCheck="cbCheckId"
     />
+    <v-text-field
+			label="Name"
+			v-model="form.mb_name"
+			prepend-icon="mdi-card-account-details-outline"
+      :rules="rules.name()"
+    />
+    <input-duplicate-check
+			ref="email"
+      v-model="form.mb_email"
+      label="email"
+      prepend-icon="mdi-email"
+			:rules="rules.email()"
+			:cbCheck="cbCheckEmail"
+    />
+
+    
     <v-btn type="submit" block color="primary">Sign Up</v-btn>
   </v-form>
 </template>
@@ -21,6 +37,10 @@ export default {
   name: "SignUpForm",
   props: {
     cbCheckId: {
+      type: Function,
+      default: null,
+    },
+    cbCheckEmail: {
       type: Function,
       default: null,
     },
@@ -51,6 +71,8 @@ export default {
       await this.$nextTick();
       if (!this.valid) return;
       if (!this.$refs.id.validate()) return;
+      if (!this.$refs.email.validate()) return;
+
       console.log(this.form);
     },
   },
