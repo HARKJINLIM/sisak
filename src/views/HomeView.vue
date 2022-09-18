@@ -39,6 +39,11 @@
     <p>13. Vuetify library has been installed and deployed</p>
     <p>14. SiteTitle component has been developed and deployed</p>
     <p>15. SiteFooter component has been developed and deployed</p>
+    <p>16. Ajax, Axios test</p>
+      <div>
+        <v-btn @click="axiosTest1">Test1</v-btn>
+        <v-btn @click="axiosTest2">Error</v-btn>
+      </div>
   </div>
 </template>
 
@@ -89,7 +94,15 @@ export default {
       async notifyTest3() {
         const res = await this.$ezNotify.prompt('message5', 'message6');
         console.log(res);
-      }
+      },
+      async axiosTest1() {
+        const result = await this.$axios.get('/api/member/test');
+        //console.log(result);
+      },
+      async axiosTest2() {
+        const result = await this.$axios.get('/api/error');
+        //console.log(result);
+      },
     },
   }
 </script>

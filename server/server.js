@@ -6,11 +6,18 @@ const fs = require('fs');
 
 // 앱 초기화
 const app = express();
-const port = process.env.SERVER_PORT || 3000;
+const port = process.env.VUE_APP_SERVER_PORT || 3000;
 const webServer = http.createServer(app);
 
 // 정적 폴더
 app.use(express.static(path.join(__dirname, "../dist")));
+
+// API router
+const memberRouter = require('./api/member');
+app.use('/api/member', memberRouter);
+app.use('/api/*', (req, res)=> {
+	res.json({err : "There is no requested API  URL: .." + req.url});
+})
 
 // Vue SSR
 const { createBundleRenderer } = require('vue-server-renderer');

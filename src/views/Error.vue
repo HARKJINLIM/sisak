@@ -1,5 +1,5 @@
 <template>
-  <div> There in no page here </div>
+  <div> There is no page here </div>
 </template>
 
 <script>
