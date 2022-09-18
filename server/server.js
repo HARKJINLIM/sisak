@@ -4,12 +4,12 @@ const http = require('http');
 const path = require('path');
 const fs = require('fs');
 
-// 앱 초기화
+// App Init
 const app = express();
 const port = process.env.VUE_APP_SERVER_PORT || 3000;
 const webServer = http.createServer(app);
 
-// 정적 폴더
+// Static folder
 app.use(express.static(path.join(__dirname, "../dist")));
 
 // API router
@@ -41,11 +41,11 @@ app.get('*', (req, res) => {
 	const stream = renderer.renderToStream(ctx);
 
 	stream.on('end', ()=> {
-		console.log('스트림 렌더 종료');
+		console.log('Stream render done');
 	}).pipe(res);
 });
 
-// 서버 리슨
+// Server listen
 webServer.listen(port, () => {
 	console.log(`http://localhost:${port}`)
 });

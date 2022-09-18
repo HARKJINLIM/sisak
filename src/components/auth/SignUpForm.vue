@@ -10,9 +10,9 @@
       :cbCheck="cbCheckId"
     />
     <v-text-field
-			label="Name"
-			v-model="form.mb_name"
-			prepend-icon="mdi-card-account-details-outline"
+      label="Name"
+      v-model="form.mb_name"
+      prepend-icon="mdi-card-account-details-outline"
       :rules="rules.name()"
     />
     <input-password
@@ -21,39 +21,46 @@
       prepend-icon="mdi-lock"
       :rules="rules.password()"
     />
-     <input-password
+    <input-password
       label="Password confirm"
       v-model="confirmPw"
       prepend-icon="mdi-lock"
       :rules="[rules.matchValue(form.mb_password)]"
     />
     <input-duplicate-check
-			ref="email"
+      ref="email"
       v-model="form.mb_email"
       label="email"
       prepend-icon="mdi-email"
-			:rules="rules.email()"
-			:cbCheck="cbCheckEmail"
+      :rules="rules.email()"
+      :cbCheck="cbCheckEmail"
     />
     <input-date
-      v-model="form.mb_birth" 
+      v-model="form.mb_birth"
       label="Birthday"
       prepend-icon="mdi-calendar"
-      :rules="rules.date({label:'Birthday'})"
+      :rules="rules.date({ label: 'Birthday' })"
+    />
+    <input-radio
+      v-model="form.mb_gender"
+      :items="genderItems"
+      row
+      prepend-icon="mdi-gender-male-female"
+      :rules="[rules.require({ label: 'Gender' })]"
     />
 
-    
     <v-btn type="submit" block color="primary">Sign Up</v-btn>
   </v-form>
 </template>
 
 <script>
 import validateRules from "../../../util/validateRules";
-import InputDate from '../InputForms/InputDate.vue';
+import InputDate from "../InputForms/InputDate.vue";
 import InputDuplicateCheck from "../InputForms/InputDuplicateCheck.vue";
-import InputPassword from '../InputForms/InputPassword.vue';
+import InputPassword from "../InputForms/InputPassword.vue";
+import InputRadio from "../InputForms/InputRadio.vue";
 export default {
-  components: { InputDuplicateCheck, InputPassword, InputDate },
+  components: { InputDuplicateCheck, InputPassword, InputDate, InputRadio },
   name: "SignUpForm",
   props: {
     cbCheckId: {
@@ -82,6 +89,10 @@ export default {
       },
       //Below confirmPw is only for check. no need to push to DB. So no need form
       confirmPw: "",
+      genderItems : [
+        { label: "Male", value: "M" },
+        { label: "Female", value: "F" },
+      ],
     };
   },
   computed: {
