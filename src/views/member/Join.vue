@@ -12,14 +12,21 @@
 </template>
 
 <script>
+import InputDuplicateCheckVue from '@/components/InputForms/InputDuplicateCheck.vue';
+//Module call import
+import { mapActions } from 'vuex';
+//Wrong typing need to check "SingUpForm"
 import SingUpForm from "../../components/auth/SignUpForm.vue";
 export default {
   components: { SingUpForm },
   name: "Join",
   methods: {
+    ...mapActions('user', ['duplicateCheck']),
     async checkId(id) {
-      console.log(id);
-      return { cnt: 0 };
+      //When your forward > move into user.js payload
+      const data = await this.duplicateCheck({field: 'mb_id', value: id});      
+      //console.log(id);
+      return data;
     },
   },
 };

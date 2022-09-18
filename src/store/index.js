@@ -1,5 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+//calling modules from../store/module
+//When you make an additional module, need to create in ../module/user.js
+import modules from "./modules";
 
 Vue.use(Vuex)
 
@@ -75,8 +78,7 @@ export function createStore() {
 		},
 		actions: {
 		},
-		modules: {
-		},
+		modules,
 	});
 	return store;
 }

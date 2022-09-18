@@ -9,6 +9,17 @@ const lib = {
 		}
 		return result;
 	},
+	async modelCall(fn, ...args) {
+		try {
+			const result = await fn(...args);
+			return result;
+		} catch(e) {
+			// if any error
+			console.trace(e);
+			return {err:e.message};
+		}
+		// if error > member.js/api/server
+	}
 }
 
 module.exports = lib;
