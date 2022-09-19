@@ -16,10 +16,10 @@ const lib = {
 		} catch(e) {
 			// if any error
 			console.trace(e);
-			return {err:e.message};
+			return { err : e.message };
 		}
 		// if error > member.js/api/server
-	}
+	},
 }
 
 module.exports = lib;

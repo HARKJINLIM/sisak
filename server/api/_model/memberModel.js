@@ -8,7 +8,7 @@ const TABLE = require('../../../util/TABLE');
 
 const memberModel = {
 	async duplicateCheck({field, value}) {
-		//(sql sytax ex.) SELECT COUNT(*) AS cnt FROM member WHERE mb_id=?;
+		//(sql sytax ex.) SELECT COUNT(*) AS cnt FROM member WHERE mb_id="test1";
         //[abcd]
         //For frequnt SELECT syntax, creating SQL helper file in ../util
         const sql = sqlHelper.SelectSimple(
@@ -16,7 +16,7 @@ const memberModel = {
 			{[field]: value}, 
 			['COUNT(*) AS cnt']
 		);
-        //console.log(sql); - deleted(testing)
+        //console.log(sql) - deleted(testing)
         //return sql; - deleted(testing)
         const [[row]] = await db.execute(sql.query, sql.values);
         //console.log(row); - deleted(testing)

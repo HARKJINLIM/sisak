@@ -83,19 +83,19 @@ export default {
     return {
       valid: true,
       form: {
-        mb_id: "",
-        mb_password: "",
-        mb_name: "",
-        mb_birth: "",
-        mb_gender: "",
-        mb_email: "",
-        mb_phone: "",
+        mb_id: "test123",
+        mb_password: "asaf12",
+        mb_name: "adfad",
+        mb_birth: "2000-01-01",
+        mb_gender: "m",
+        mb_email: "adfa@gadfa.com",
+        mb_phone: "031-330-3310",
         mb_zip: "",
         mb_addr1: "",
         mb_addr2: "",
       },
       //Below confirmPw is only for check. no need to push to DB. So no need form
-      confirmPw: "",
+      confirmPw: "asaf12",
       genderItems : [
         { label: "Male", value: "M" },
         { label: "Female", value: "F" },
@@ -114,6 +114,7 @@ export default {
       if (!this.$refs.email.validate()) return;
 
       console.log(this.form);
+      //this.$emit('onSave', this.form);
     },
   },
 };

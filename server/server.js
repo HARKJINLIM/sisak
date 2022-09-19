@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, "../dist")));
 const memberRouter = require('./api/member');
 app.use('/api/member', memberRouter);
 app.use('/api/*', (req, res)=> {
-	res.json({err : "There is no requested API  URL: .." + req.url});
+	res.json({err : 'There is no requested API  URL: ..' + req.url});
 })
 
 // Vue SSR

@@ -8,7 +8,7 @@ import axios from "axios";
 // axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
-console.log(process.env);
+// console.log(process.env);
 
 let config = {
   baseURL: process.env.BASE_URL || process.env.apiUrl || "",
@@ -40,19 +40,19 @@ _axios.interceptors.response.use(
   function(response) {
     const {$Progress, $toast} = Vue.prototype;
     const {data, status} = response;
-    let Msg = '';
+    let msg = '';
     console.log("AJAX", response)
 		if(status !== 200) {
-			Msg = `Server connection failure`;
+			msg = `Server connection failure`;
 		}
     if(data && data.err) {
-      Msg=data.err;
+      msg=data.err;
     }
 
-    if(Msg){
-      if($toast) $toast.error(Msg);
+    if(msg){
+      if($toast) $toast.error(msg);
       if($Progress) $Progress.fail();
-      console.warn(Msg);
+      console.warn(msg);
       return false;
     } else {
       if($Progress) $Progress.finish();
@@ -72,7 +72,7 @@ _axios.interceptors.response.use(
 const Plugin = {};
 Plugin.install = function(Vue, options) {
   Vue.axios = _axios;
-  // window.axios = _axios;
+  // window.axios = _axios; - deleted
   Object.defineProperties(Vue.prototype, {
     axios: {
       get() {

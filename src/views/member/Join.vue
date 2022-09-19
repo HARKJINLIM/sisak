@@ -5,7 +5,7 @@
         <v-toolbar-title>Sign Up</v-toolbar-title>
       </v-toolbar>
       <v-card-text>
-        <sing-up-form :cbCheckId="checkId" :cbCheckEmail="checkEmail"/>
+        <sing-up-form :cbCheckId="checkId" :cbCheckEmail="checkEmail" @onSave="save"/>
       </v-card-text>
     </v-card>
   </div>
@@ -34,6 +34,9 @@ export default {
       //console.log(id);
       return data;
     },
+    async save(form) {
+      console.log(this.form)
+    }
   },
 };
 </script>

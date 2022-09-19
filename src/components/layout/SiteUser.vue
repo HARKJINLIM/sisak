@@ -14,10 +14,10 @@
 			</v-card-text>
 			<template>
 				<v-card-actions>
-					<v-btn to="/login" color="primary" block>로그인</v-btn>
+					<v-btn to="/login" color="primary" block>Log In</v-btn>
 				</v-card-actions>
 				<v-card-actions>
-					<v-btn to="/join" color="secondary" block>회원가입</v-btn>
+					<v-btn to="/join" color="secondary" block>Sign Up</v-btn>
 				</v-card-actions>
 			</template>
 		</v-card>
